@@ -68,7 +68,7 @@ class Solution {
 There is one mistake in above implementation, the path for these two different island shapes 
 ![Island Shape 1](island-shape-1.JPG?raw=true "Island Shape 1") and ![Island Shape 2](island-shape-2.JPG?raw=true "Island Shape 2") are same, in above implementation, which is (SRD). But these are two different islands.
 
-**Solution : **
+**Solution :**
 
 So to solve this issue, we need to make sure that the path constructed by these 2 islands are different.
 We can do that, by appending "X" at the end, once we exhausted going in all 4 directions (right, left, up, down), from a cell.
@@ -104,7 +104,7 @@ class Solution {
         traverseIsland(grid, row, column - 1, path, "L");
         traverseIsland(grid, row - 1, column, path, "U");
         traverseIsland(grid, row + 1, column, path, "D");
-        path.append("X");
+        path.append("X"); // Appending X at the end
     }
 }
 ```
