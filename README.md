@@ -66,7 +66,8 @@ class Solution {
 }
 ```
 
-There is one mistake in above implementation, the path for the below two island ![Island Shape 1](island-shape-1.JPG?raw=true "Island Shape 1") and ![Island Shape 2](island-shape-2.JPG?raw=true "Island Shape 2") are same 
+There is one mistake in above implementation, the path for the below two island 
+![Island Shape 1](island-shape-1.JPG?raw=true "Island Shape 1") and ![Island Shape 2](island-shape-2.JPG?raw=true "Island Shape 2") are same 
 
 
 
