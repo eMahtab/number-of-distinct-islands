@@ -70,7 +70,7 @@ There is one mistake in above implementation, the path for these two different i
 
 But these are two different islands.
 
-## Correct Implementation :
+## Correct Implementation : Time : O(rows * columns)  , Space : O(rows * columns)
 ```java
 class Solution {
     public int numDistinctIslands(int[][] grid) {
@@ -107,5 +107,6 @@ class Solution {
 
 
 # References :
-https://leetcode.com/problems/number-of-distinct-islands/discuss/642897/Java-Solution-approach-similar-to-total-islands
+1. https://www.youtube.com/watch?v=c1ZxUOHlulo
+2. https://leetcode.com/problems/number-of-distinct-islands/discuss/642897/Java-Solution-approach-similar-to-total-islands
 
