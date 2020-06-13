@@ -65,3 +65,6 @@ class Solution {
     }
 }
 ```
+
+There is one mistake in above implementation, the path for the island ( 1 1 ) and ( 1 1 ) are same.
+                                                                        1             1 
