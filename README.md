@@ -30,3 +30,38 @@ and
 are considered different island shapes, because we do not consider reflection / rotation.
 ```
 **Note: The length of each dimension in the given grid does not exceed 50.**
+
+## Wrong Implementation :
+```java
+class Solution {
+    public int numDistinctIslands(int[][] grid) {
+        if(grid == null || grid.length == 0)
+            return 0;
+        Set<String> set = new HashSet<>();
+        for(int i = 0; i < grid.length; i++) {
+            for(int j = 0; j < grid[0].length; j++) {
+                if(grid[i][j] == 1) {
+                    StringBuilder path = new StringBuilder();
+                    traverseIsland(grid, i, j, path, "S");
+                    System.out.println(path);
+                    set.add(path.toString());
+                }
+            }
+        }
+        return set.size();
+    }
+    
+    private void traverseIsland(int[][] grid, int row, int column, StringBuilder path, String move) {
+        if(row < 0 || row >= grid.length || column < 0 || column >= grid[0].length || 
+           grid[row][column] == 0)
+            return;
+        
+        path.append(move);
+        grid[row][column] = 0;
+        traverseIsland(grid, row, column + 1, path, "R");
+        traverseIsland(grid, row, column - 1, path, "L");
+        traverseIsland(grid, row - 1, column, path, "U");
+        traverseIsland(grid, row + 1, column, path, "D");
+    }
+}
+```
