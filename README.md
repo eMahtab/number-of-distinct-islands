@@ -66,9 +66,13 @@ class Solution {
 ```
 
 There is one mistake in above implementation, the path for these two different island shapes 
-![Island Shape 1](island-shape-1.JPG?raw=true "Island Shape 1") and ![Island Shape 2](island-shape-2.JPG?raw=true "Island Shape 2") are same, in above implementation, which is (SRD). 
+![Island Shape 1](island-shape-1.JPG?raw=true "Island Shape 1") and ![Island Shape 2](island-shape-2.JPG?raw=true "Island Shape 2") are same, in above implementation, which is (SRD). But these are two different islands.
 
-But these are two different islands.
+**Solution : **
+
+So to solve this issue, we need to make sure that the path constructed by these 2 islands are different.
+We can do that, by appending "X" at the end, once we exhausted going in all 4 directions (right, left, up, down), from a cell.
+By doing so the path for the first island shape will be `SRXDXX` and the path for the second island shape will be `SRDXXX`
 
 ## Correct Implementation : Time : O(rows * columns)  , Space : O(rows * columns)
 ```java
