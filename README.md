@@ -75,6 +75,8 @@ We can do that, by appending "X" at the end, once we exhausted going in all 4 di
 By doing so the path for the first island shape will be `SRXDXX` and the path for the second island shape will be `SRDXXX`
 
 ## Correct Implementation : Time : O(rows * columns)  , Space : O(rows * columns)
+
+## Approach 1 : DFS
 ```java
 class Solution {
     public int numDistinctIslands(int[][] grid) {
@@ -106,6 +108,51 @@ class Solution {
         traverseIsland(grid, row + 1, column, path, "D");
         path.append("X"); // Appending X at the end
     }
+}
+```
+
+## Approach 2 : BFS
+```java
+class Solution {
+    public int numDistinctIslands(int[][] grid) {
+      if(grid == null || grid.length == 0)
+            return 0;
+
+      Set<String> set = new HashSet<>();
+      int rows = grid.length;
+      int cols = grid[0].length;
+      Queue<int[]> q = new LinkedList<>();
+      Map<String,int[]> directions = new HashMap<>();
+      directions.put("R", new int[]{0, 1});
+      directions.put("L", new int[]{0, -1});
+      directions.put("U", new int[]{-1, 0});
+      directions.put("D", new int[]{1, 0});
+      for(int i = 0; i < rows; i++) {
+        for(int j = 0; j < cols; j++) {
+          if(grid[i][j] == 1) {
+             q.add(new int[]{i, j});
+             grid[i][j] = 0;
+             StringBuilder path = new StringBuilder("S");
+             while(!q.isEmpty()) {
+              int[] pos = q.remove();
+              for(String direction : directions.keySet()) {
+               int row = pos[0] + directions.get(direction)[0];
+               int col = pos[1] + directions.get(direction)[1];
+               if(row >= 0 && row < rows && col >= 0 && col < cols && grid[row][col] == 1) {
+                 path.append(direction);
+                 grid[row][col] = 0;	
+                 q.add(new int[]{row, col});  
+               }
+               path.append("X");   
+              }
+             }
+             set.add(path.toString()); 
+          }
+       }
+     }
+
+     return set.size(); 	 
+   }
 }
 ```
 
